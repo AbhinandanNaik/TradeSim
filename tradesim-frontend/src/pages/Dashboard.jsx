@@ -60,7 +60,7 @@ function Dashboard() {
                 ))}
             </div>
         </div>
-    );
+    ); // End of return
 }
 
 export default Dashboard;
