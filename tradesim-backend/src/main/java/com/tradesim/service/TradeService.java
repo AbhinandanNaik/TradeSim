@@ -24,10 +24,16 @@ public class TradeService {
 
     @Transactional // <--- IMPORTANT: This ensures data integrity. All or nothing.
     public String buyAsset(Long userId, String symbol, double quantity) {
+        if (userId == null) {
+            throw new RuntimeException("User ID cannot be null");
+        }
         // 1. Get the User
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
+        if(symbol == null) {
+            throw new RuntimeException("Symbol cannot be null");
+        }
         // 2. Get the Asset Price
         Asset asset = assetRepository.findById(symbol)
                 .orElseThrow(() -> new RuntimeException("Asset not found"));

@@ -5,7 +5,7 @@ import AssetCard from '../components/AssetCard';
 function Dashboard() {
     const [assets, setAssets] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [userBalance, setUserBalance] = useState(10000);
+    const [userBalance, _setUserBalance] = useState(0);
 
     useEffect(() => {
         loadData();
